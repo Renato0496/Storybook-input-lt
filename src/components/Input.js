@@ -8,7 +8,7 @@ function Input({
   alert = false,
   required = true,
   size = "sm",
-  flexDirection = "row",
+  flexDirection = "column",
 }) {
 
   const [inputValue, setInputValue] = useState('');
@@ -31,6 +31,8 @@ function Input({
     placeholder = "*******"
   }
 
+  if (required) labelText += " *";
+
   const containerStyle = {
     backgroundColor,
     display: "flex",
@@ -39,7 +41,7 @@ function Input({
     alignItems: "center",
     border: "1px solid",
     borderRadius: "5px",
-    maxWidth: `${(flexDirection === "row") ? scale * 350 : scale * 250}px`,
+    maxWidth: `${(flexDirection === "row") ? scale * 270 : scale * 200}px`,
     padding: `${scale * 5}px`,
     gap: "5px",
   };
@@ -48,16 +50,16 @@ function Input({
     backgroundColor: `${alertBack}`,
     margin: "5px",
     border: "1px solid",
-    width: `${scale*200}px`,
+    width: `${scale*150}px`,
     height: `${scale*45}px`,
-    borderRadius: `5px`,
+    borderRadius: "5px",
+    textAlign: "center",
   };
 
   return (
     <div style={containerStyle}>
       <h3>{labelText}</h3>
       <input style={inputStyle} placeholder={placeholder} label={labelText} value={inputValue} type={type} onChange={(event) => setInputValue(event.target.value)}/>
-      {required ? "***" : ""}
     </div>
   );
 }
@@ -69,7 +71,6 @@ Input.propTypes = {
   alert: PropTypes.bool,
   required: PropTypes.bool,
   flexDirection: PropTypes.oneOf(["row", "column"]),
-  placeholder: PropTypes.string,
 };
 
 export default Input;
