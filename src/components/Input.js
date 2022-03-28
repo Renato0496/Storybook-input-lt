@@ -59,7 +59,7 @@ function Input({
   return (
     <div style={containerStyle}>
       <h3>{labelText}</h3>
-      <input style={inputStyle} placeholder={placeholder} label={labelText} value={inputValue} type={type} onChange={(event) => setInputValue(event.target.value)}/>
+      <input style={inputStyle} placeholder={placeholder} value={inputValue} type={type} onChange={(event) => setInputValue(event.target.value)}/>
     </div>
   );
 }
