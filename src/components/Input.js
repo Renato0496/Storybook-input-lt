@@ -12,15 +12,9 @@ function Input({
 }) {
 
   const [inputValue, setInputValue] = useState('');
-
-  let scale = 1.25;
-  if (size === "sm") scale = 1;
-  if (size === "lg") scale = 1.5;
-
-  let alertBack = "";
-  if (alert) alertBack = "#fca5a5";
-
+  
   let labelText = "Username";
+
   if (type === "email") {
     labelText = "E-mail";
     placeholder = "example@mail.com"
@@ -30,6 +24,14 @@ function Input({
     labelText = "Password";
     placeholder = "*******"
   }
+
+  let scale = 1.25;
+  if (size === "sm") scale = 1;
+  if (size === "lg") scale = 1.5;
+
+  let alertBack = "";
+  if (alert) alertBack = "#fca5a5";
+
 
   if (required) labelText += " *";
 
